@@ -36,11 +36,9 @@
     "tap": "^10.3.1"
   },
   "dependencies": {
-    "fun-array": "^0.3.0",
-    "fun-compose": "^0.3.3",
-    "fun-curry": "^0.2.6",
-    "fun-function": "^0.1.1",
+    "fun-array": "^0.6.0",
+    "fun-function": "^0.7.3",
     "fun-predicate": "^0.15.2",
-    "fun-scalar": "^0.1.1"
+    "fun-scalar": "^0.2.0"
   }
 }

@@ -12,8 +12,6 @@
 
   /* imports */
   var array = require('fun-array')
-  var compose = require('fun-compose')
-  var curry = require('fun-curry')
   var fn = require('fun-function')
   var predicate = require('fun-predicate')
   var scalar = require('fun-scalar')
@@ -21,19 +19,19 @@
   /* exports */
   module.exports = {
     isValid: isValid,
-    sum: curry(sum),
-    sub: curry(sub),
-    dot: curry(dot),
+    sum: fn.curry(sum),
+    sub: fn.curry(sub),
+    dot: fn.curry(dot),
     zero: zero,
-    k: curry(k),
-    e: curry(e),
-    normP: curry(normP),
-    normL1: curry(normL1),
-    normL2: curry(normL2),
-    normLInf: curry(normLInf),
+    k: fn.curry(k),
+    e: fn.curry(e),
+    normP: fn.curry(normP),
+    normL1: fn.curry(normL1),
+    normL2: fn.curry(normL2),
+    normLInf: fn.curry(normLInf),
     dim: dim,
     unit: unit,
-    scale: curry(scale)
+    scale: fn.curry(scale)
   }
 
   /**
@@ -137,7 +135,7 @@
   function normP (p, v) {
     return scalar.exp(
       1 / p,
-      v.map(compose(scalar.abs, scalar.exp(p))).reduce(scalar.sum, 0)
+      v.map(fn.compose(scalar.abs, scalar.exp(p))).reduce(scalar.sum, 0)
     )
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "fun-vector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Functions for working with vectors functionally",
   "main": "src/index.js",
   "browser": "dist/bundle.js",

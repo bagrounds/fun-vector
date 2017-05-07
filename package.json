@@ -43,6 +43,6 @@
     "fun-array": "^0.6.0",
     "fun-function": "^0.7.3",
     "fun-predicate": "^0.15.2",
-    "fun-scalar": "^0.2.0"
+    "fun-scalar": "^0.2.1"
   }
 }

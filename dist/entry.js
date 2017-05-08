@@ -1,2 +1,2 @@
-funArray = require('../src')
+funVector = require('../src')
 

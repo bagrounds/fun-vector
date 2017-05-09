@@ -31,7 +31,21 @@
     normLInf: fn.curry(normLInf),
     dim: dim,
     unit: unit,
-    scale: fn.curry(scale)
+    scale: fn.curry(scale),
+    softmax: softmax
+  }
+
+  /**
+   *
+   * @function module:fun-vector.softmax
+   *
+   * @param {Vector} v - iput vector
+   *
+   * @return {Vector} the softmax distribution of v
+   */
+  function softmax (v) {
+    var e = v.map(fn.compose(Math.exp, scalar.sub(v.reduce(scalar.max, v[0]))))
+    return e.map(scalar.div(e.reduce(scalar.sum, 0)))
   }
 
   /**

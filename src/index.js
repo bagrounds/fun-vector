@@ -18,7 +18,7 @@
 
   /* exports */
   module.exports = {
-    isValid: isValid,
+    isVector: isVector,
     sum: fn.curry(sum),
     sub: fn.curry(sub),
     dot: fn.curry(dot),
@@ -127,13 +127,13 @@
 
   /**
    *
-   * @function module:fun-vector.isValid
+   * @function module:fun-vector.isVector
    *
    * @param {*} v - candidate to check
    *
    * @return {Boolean} if v is a valid vector
    */
-  function isValid (v) {
+  function isVector (v) {
     return predicate.type('[Number]', v)
   }
 

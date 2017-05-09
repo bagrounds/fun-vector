@@ -134,7 +134,10 @@
    * @return {Boolean} if v is a valid vector
    */
   function isVector (v) {
-    return predicate.type('[Number]', v)
+    return predicate.and(
+      predicate.type('[Number]'),
+      fn.compose(scalar.gt(0), array.length)
+    )(v)
   }
 
   /**

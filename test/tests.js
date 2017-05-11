@@ -11,6 +11,20 @@
   var fn = require('fun-function')
 
   var equalityTests = [
+    [[[1, 1 + Number.EPSILON], [1, 1]], false, 'eNear'],
+    [[[0.2 - 0.3 + 0.1, 0], [0, 0.2 - 0.3 + 0.1]], true, 'eNear'],
+    [[[1, 1], [1]], false, 'eNear'],
+    [[[1], [1, 1]], false, 'eNear'],
+    [[0.1, [1, 1.09], [0.91, 1]], true, 'near'],
+    [[0.1, [1.09, 1], [1, 0.91]], true, 'near'],
+    [[0.1, [1, 1], [1]], false, 'near'],
+    [[0.1, [1], [1, 1]], false, 'near'],
+    [[[1, 1], [2, 1]], false, 'equal'],
+    [[[1, 2], [1, 1]], false, 'equal'],
+    [[[1, 2], [1]], false, 'equal'],
+    [[[1], [1, 2]], false, 'equal'],
+    [[[1, 2], [1, 2]], true, 'equal'],
+    [[[1], [1]], true, 'equal'],
     [[[1]], true, 'isVector'],
     [[[1, 2, 3]], true, 'isVector'],
     [[[1, 2, '3']], false, 'isVector'],

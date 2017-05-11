@@ -18,6 +18,9 @@
 
   /* exports */
   module.exports = {
+    eNear: fn.curry(eNear),
+    near: fn.curry(near),
+    equal: fn.curry(equal),
     isVector: isVector,
     sum: fn.curry(sum),
     sub: fn.curry(sub),
@@ -37,9 +40,58 @@
 
   /**
    *
+   * @function module:fun-vector.eNear
+   *
+   * @param {Vector} v1 - input vector
+   * @param {Vector} v2 - input vector
+   *
+   * @return {Boolean} if v1 and v2 are EPSILON-near in all components
+   */
+  function eNear (v1, v2) {
+    return v1.length === v2.length &&
+      v1.reduce(function (result, value, i) {
+        return result && scalar.eNear(value, v2[i])
+      }, true)
+  }
+
+  /**
+   *
+   * @function module:fun-vector.near
+   *
+   * @param {Number} delta - threshold for nearness
+   * @param {Vector} v1 - input vector
+   * @param {Vector} v2 - input vector
+   *
+   * @return {Boolean} if v1 and v2 are delta-near in all components
+   */
+  function near (delta, v1, v2) {
+    return v1.length === v2.length &&
+      v1.reduce(function (result, value, i) {
+        return result && scalar.near(delta, value, v2[i])
+      }, true)
+  }
+
+  /**
+   *
+   * @function module:fun-vector.equal
+   *
+   * @param {Vector} v1 - input vector
+   * @param {Vector} v2 - input vector
+   *
+   * @return {Boolean} v1 and v2 are equal in all components
+   */
+  function equal (v1, v2) {
+    return v1.length === v2.length &&
+      v1.reduce(function (result, value, i) {
+        return result && value === v2[i]
+      }, true)
+  }
+
+  /**
+   *
    * @function module:fun-vector.softmax
    *
-   * @param {Vector} v - iput vector
+   * @param {Vector} v - input vector
    *
    * @return {Vector} the softmax distribution of v
    */
